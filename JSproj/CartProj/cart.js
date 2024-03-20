@@ -17,7 +17,7 @@ add3ToCart = () => {
 };
 
 removeFromCart = () => {
-    if (cartQuantity == 0) {
+    if (cartQuantity === 0) {
         console.log(`Cart quantity is ${cartQuantity}! Nothing to remove from cart.`);
     }else {
         console.log(`Cart quantity: ${cartQuantity -= 1 }`);
@@ -25,7 +25,7 @@ removeFromCart = () => {
 };
 
 resetCart = () => {
-    if (cartQuantity == 0) {
+    if (cartQuantity === 0) {
         console.log(`Cart quantity is ${cartQuantity}! Cart reset successful`);
     } else {
     console.log('Cart was reset!');
