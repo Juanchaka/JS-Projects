@@ -5,7 +5,11 @@ showQuantity = () => {
 };
 
 addToCart = () => {
+    if (cartQuantity >= 10) {
+        console.log(`Cart full - ${cartQuantity} items, please remove an item(s) from cart`);
+    } else {
     console.log(`Cart quantitiy: ${cartQuantity += 1}`);
+    }
 };
 
 add2ToCart = () => {
