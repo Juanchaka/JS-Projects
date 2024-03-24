@@ -9,52 +9,36 @@ computerMove = () => {
     else if (randomizer >= 2/3 && randomizer < 1) {
         compChoice = "Scissors"
     };
+    return compChoice;
 };
 
-
-
-
-pickRock = () => {
-    const userChoice ="Rock"
-    computerMove();
-
-    if (compChoice === "Scissors") {
-        result = "Rock beats scissors, you win!";
-    } else if (compChoice === "Paper") {
-        result = "Paper beats Rock, you lose!";
-    } else if (compChoice === "Rock") {
-        result = "It's a tie";
+playerMove = (pChoice) => {
+    if (compChoice === "Scissors" && pChoice === "Scissors" || compChoice === "Paper" && pChoice === "Paper" || compChoice === "Rock" && pChoice === "Rock") {
+        result = console.log(`Computer chose ${compChoice} - It's a tie`);
+    }
+    
+    else if (compChoice === "Scissors" && pChoice === "Rock" || compChoice === "Rock" && pChoice === "Paper" || compChoice === "Paper" && pChoice === "Scissors") {
+        result = console.log(`Computer chose ${compChoice} - ${pChoice} beats ${compChoice}, you win!`);
+    }
+    
+    else if (compChoice === "Paper" && pChoice === "Rock" || compChoice === "Rock" && pChoice === "Scissors" || compChoice === "Scissors" && pChoice === "Paper") {
+        result = console.log(`Computer chose ${compChoice} - ${compChoice} beats ${pChoice}, you lose!`);
     };
 
-    alert(`The computer chose ${compChoice} - ${result}`);
+    return result;
+};
+
+pickRock = () => {
+    computerMove();
+    playerMove("Rock");
 };
 
 pickPaper = () => {
-    const userChoice ="Paper"
     computerMove();
-
-    if (compChoice === "Scissors") {
-        result =  "Scissors beat Paper, You lose!";
-    } else if (compChoice === "Paper") {
-        result = "It's a tie";
-    } else if (compChoice === "Rock") {
-        result = "Paper beats Rock, you win!";
-    };
-
-    alert(`The computer chose ${compChoice} - ${result}`);
+    playerMove("Paper");
 };
 
 pickScissors = () => {
-    const userChoice = "Scissors"
     computerMove();
-
-    if (compChoice === "Scissors") {
-        result = "It's a tie";
-    } else if (compChoice === "Paper") {
-        result = "Scissors beat Paper, you win!";
-    } else if (compChoice === "Rock") {
-        result = "Rock beats Scissors, you lose!";
-    };
-
-    alert(`The computer chose ${compChoice} - ${result}`);
+    playerMove("Scissors");
 };
