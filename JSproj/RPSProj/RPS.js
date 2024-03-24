@@ -13,18 +13,14 @@ computerMove = () => {
 };
 
 playerMove = (pChoice) => {
+    let compChoice = computerMove();
     if (compChoice === "Scissors" && pChoice === "Scissors" || compChoice === "Paper" && pChoice === "Paper" || compChoice === "Rock" && pChoice === "Rock") {
         result = console.log(`Computer chose ${compChoice} - It's a tie`);
-    }
-    
-    else if (compChoice === "Scissors" && pChoice === "Rock" || compChoice === "Rock" && pChoice === "Paper" || compChoice === "Paper" && pChoice === "Scissors") {
+    } else if (compChoice === "Scissors" && pChoice === "Rock" || compChoice === "Rock" && pChoice === "Paper" || compChoice === "Paper" && pChoice === "Scissors") {
         result = console.log(`Computer chose ${compChoice} - ${pChoice} beats ${compChoice}, you win!`);
-    }
-    
-    else if (compChoice === "Paper" && pChoice === "Rock" || compChoice === "Rock" && pChoice === "Scissors" || compChoice === "Scissors" && pChoice === "Paper") {
+    } else if (compChoice === "Paper" && pChoice === "Rock" || compChoice === "Rock" && pChoice === "Scissors" || compChoice === "Scissors" && pChoice === "Paper") {
         result = console.log(`Computer chose ${compChoice} - ${compChoice} beats ${pChoice}, you lose!`);
     };
-
     return result;
 };
 
