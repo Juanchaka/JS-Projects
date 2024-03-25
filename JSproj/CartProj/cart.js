@@ -4,27 +4,27 @@ showQuantity = () => {
     console.log(`Cart quantitiy: ${cartQuantity}`);
 };
 
-addToCart = () => {
-    if (cartQuantity >= 10) {
-        console.log(`Cart full - ${cartQuantity} items, please remove an item(s) from cart`);
-    } else {
-    console.log(`Cart quantitiy: ${cartQuantity += 1}`);
+addToCart = (amount) => { 
+    if (cartQuantity + amount > 10) {
+        alert(`Cart has ${cartQuantity} items, only 10 items allowed`);
+        return;
     }
+    console.log(`Cart quantitiy: ${cartQuantity += amount}`);
 };
 
-add2ToCart = () => {
-    console.log(`Cart quantitiy: ${cartQuantity += 2}`);
-};
+// add2ToCart = () => {
+//     console.log(`Cart quantitiy: ${cartQuantity += 2}`);
+// };
 
-add3ToCart = () => {
-    console.log(`Cart quantitiy: ${cartQuantity += 3}`);
-};
+// add3ToCart = () => {
+//     console.log(`Cart quantitiy: ${cartQuantity += 3}`);
+// };
 
-removeFromCart = () => {
+removeFromCart = (amount) => {
     if (cartQuantity === 0) {
         console.log(`Cart quantity is ${cartQuantity}! Nothing to remove from cart.`);
     }else {
-        console.log(`Cart quantity: ${cartQuantity -= 1 }`);
+        console.log(`Cart quantity: ${cartQuantity -= amount }`);
     }
 };
 
