@@ -1,8 +1,6 @@
-const countScore = {
-    Wins: 0,
-    Losses: 0,
-    Ties: 0
-};
+const countScore = JSON.parse((localStorage.getItem("score")));
+
+console.log(countScore);
 
 computerMove = () => {
     const randomizer = Math.random();
@@ -34,11 +32,14 @@ playerMove = (pChoice) => {
 };
 
 score = () => {
+    localStorage.setItem("score", JSON.stringify(countScore));
     return (`Wins: ${countScore.Wins}, Losses: ${countScore.Losses}, Ties: ${countScore.Ties}`)
 };
 
 resetScore = () => {
-    countScore.Wins = 0; countScore.Losses = 0; countScore.Ties = 0;
+    countScore.Wins = 0;
+    countScore.Losses = 0;
+    countScore.Ties = 0;
     console.log(score());
 };
 
