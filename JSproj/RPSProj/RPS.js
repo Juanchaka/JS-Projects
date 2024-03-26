@@ -14,7 +14,7 @@ computerMove = () => {
 
 playerMove = (pChoice) => {
     let compChoice = computerMove();
-    if (compChoice === "Scissors" && pChoice === "Scissors" || compChoice === "Paper" && pChoice === "Paper" || compChoice === "Rock" && pChoice === "Rock") {
+    if (compChoice === pChoice) {
         result = console.log(`Computer chose ${compChoice} - It's a tie`);
     } else if (compChoice === "Scissors" && pChoice === "Rock" || compChoice === "Rock" && pChoice === "Paper" || compChoice === "Paper" && pChoice === "Scissors") {
         result = console.log(`Computer chose ${compChoice} - ${pChoice} beats ${compChoice}, you win!`);
