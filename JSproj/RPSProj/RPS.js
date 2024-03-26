@@ -1,3 +1,9 @@
+const countScore = {
+    Wins: 0,
+    Losses: 0,
+    Ties: 0
+};
+
 computerMove = () => {
     const randomizer = Math.random();
     if (randomizer >= 0 && randomizer < 1/3) {
@@ -15,13 +21,20 @@ computerMove = () => {
 playerMove = (pChoice) => {
     let compChoice = computerMove();
     if (compChoice === pChoice) {
-        result = console.log(`Computer chose ${compChoice} - It's a tie`);
+        countScore.Ties += 1;
+        result = alert(`Computer chose ${compChoice} - It's a tie!\n${score()}`);
     } else if (compChoice === "Scissors" && pChoice === "Rock" || compChoice === "Rock" && pChoice === "Paper" || compChoice === "Paper" && pChoice === "Scissors") {
-        result = console.log(`Computer chose ${compChoice} - ${pChoice} beats ${compChoice}, you win!`);
+        countScore.Wins += 1;
+        result = alert(`Computer chose ${compChoice} - ${pChoice} beats ${compChoice}, you win!\n${score()}`);
     } else if (compChoice === "Paper" && pChoice === "Rock" || compChoice === "Rock" && pChoice === "Scissors" || compChoice === "Scissors" && pChoice === "Paper") {
-        result = console.log(`Computer chose ${compChoice} - ${compChoice} beats ${pChoice}, you lose!`);
+        countScore.Losses += 1;
+        result = alert(`Computer chose ${compChoice} - ${compChoice} beats ${pChoice}, you lose!\n${score()}`);
     };
     return result;
+};
+
+score = () => {
+    return (`Wins: ${countScore.Wins}, Losses: ${countScore.Losses}, Ties: ${countScore.Ties}`)
 };
 
 pickRock = () => {
