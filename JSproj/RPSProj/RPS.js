@@ -1,59 +1,61 @@
-const countScore = JSON.parse((localStorage.getItem("score")));
-
-console.log(countScore);
-
 computerMove = () => {
     const randomizer = Math.random();
+    let compChoice = "";
     if (randomizer >= 0 && randomizer < 1/3) {
-        compChoice = "Rock"
+        compChoice = "Rock";
     }
     else if (randomizer >= 1/3 && randomizer < 2/3) {
-        compChoice = "Paper"
+        compChoice = "Paper";
     }
     else if (randomizer >= 2/3 && randomizer < 1) {
-        compChoice = "Scissors"
+        compChoice = "Scissors";
     };
     return compChoice;
 };
 
-playerMove = (pChoice) => {
-    let compChoice = computerMove();
-    if (compChoice === pChoice) {
-        countScore.Ties += 1;
-        result = console.log(`Computer chose ${compChoice} - It's a tie!\n${score()}`);
-    } else if (compChoice === "Scissors" && pChoice === "Rock" || compChoice === "Rock" && pChoice === "Paper" || compChoice === "Paper" && pChoice === "Scissors") {
-        countScore.Wins += 1;
-        result = console.log(`Computer chose ${compChoice} - ${pChoice} beats ${compChoice}, you win!\n${score()}`);
-    } else if (compChoice === "Paper" && pChoice === "Rock" || compChoice === "Rock" && pChoice === "Scissors" || compChoice === "Scissors" && pChoice === "Paper") {
-        countScore.Losses += 1;
-        result = console.log(`Computer chose ${compChoice} - ${compChoice} beats ${pChoice}, you lose!\n${score()}`);
+playGame = (playerMove) => {
+    const compChoice = computerMove();
+    let result = "";
+
+    if (playerMove === "Rock") {
+        if (compChoice === "Rock") {
+            result = ("Tie");
+        } else if (compChoice === "Scissors") {
+            result = ("You win");
+        } else if (compChoice === "Paper") {
+            result = ("You lose");
+        };
+
+    } else if (playerMove === "Paper") {
+        if (compChoice === "Rock") {
+            result = ("You win");
+        } else if (compChoice === "Scissors") {
+            result = ("You lose");
+        } else if (compChoice === "Paper") {
+            result = ("Tie");
+        };
+
+    } else if (playerMove === "Scissors") {
+        if (compChoice === "Rock") {
+            result = ("You lose");
+        } else if (compChoice === "Scissors") {
+            result = ("Tie");
+        } else if (compChoice === "Paper") {
+            result = ("You win");
+        };
     };
-    return result;
-};
-
-score = () => {
-    localStorage.setItem("score", JSON.stringify(countScore));
-    return (`Wins: ${countScore.Wins}, Losses: ${countScore.Losses}, Ties: ${countScore.Ties}`)
-};
-
-resetScore = () => {
-    countScore.Wins = 0;
-    countScore.Losses = 0;
-    countScore.Ties = 0;
-    console.log(score());
+    
+    console.log(`You picked ${playerMove}. The computer picked ${compChoice}. ${result}`);
 };
 
 pickRock = () => {
-    computerMove();
-    playerMove("Rock");
+    playGame("Rock");
 };
 
 pickPaper = () => {
-    computerMove();
-    playerMove("Paper");
+    playGame("Paper");
 };
 
 pickScissors = () => {
-    computerMove();
-    playerMove("Scissors");
+    playGame("Scissors");
 };
