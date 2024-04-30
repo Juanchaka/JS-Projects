@@ -1,14 +1,20 @@
+const score = {
+    wins: 0,
+    losses: 0,
+    ties: 0
+};
+
 computerMove = () => {
     const randomizer = Math.random();
     let compChoice = "";
     if (randomizer >= 0 && randomizer < 1/3) {
-        compChoice = "Rock";
+        compChoice = "ROCK";
     }
     else if (randomizer >= 1/3 && randomizer < 2/3) {
-        compChoice = "Paper";
+        compChoice = "PAPER";
     }
     else if (randomizer >= 2/3 && randomizer < 1) {
-        compChoice = "Scissors";
+        compChoice = "SCISSORS";
     };
     return compChoice;
 };
@@ -17,45 +23,59 @@ playGame = (playerMove) => {
     const compChoice = computerMove();
     let result = "";
 
-    if (playerMove === "Rock") {
-        if (compChoice === "Rock") {
-            result = ("Tie");
-        } else if (compChoice === "Scissors") {
-            result = ("You win");
-        } else if (compChoice === "Paper") {
-            result = ("You lose");
+    if (playerMove === "ROCK") {
+        if (compChoice === "ROCK") {
+            result = ("It's a tie!");
+        } else if (compChoice === "SCISSORS") {
+            result = ("You win!");
+        } else if (compChoice === "PAPER") {
+            result = ("You lose!");
         };
 
-    } else if (playerMove === "Paper") {
-        if (compChoice === "Rock") {
-            result = ("You win");
-        } else if (compChoice === "Scissors") {
-            result = ("You lose");
-        } else if (compChoice === "Paper") {
-            result = ("Tie");
+    } else if (playerMove === "PAPER") {
+        if (compChoice === "ROCK") {
+            result = ("You win!");
+        } else if (compChoice === "SCISSORS") {
+            result = ("You lose!");
+        } else if (compChoice === "PAPER") {
+            result = ("It's a tie!");
         };
 
-    } else if (playerMove === "Scissors") {
-        if (compChoice === "Rock") {
-            result = ("You lose");
-        } else if (compChoice === "Scissors") {
-            result = ("Tie");
-        } else if (compChoice === "Paper") {
-            result = ("You win");
+    } else if (playerMove === "SCISSORS") {
+        if (compChoice === "ROCK") {
+            result = ("You lose!");
+        } else if (compChoice === "SCISSORS") {
+            result = ("It's a tie!");
+        } else if (compChoice === "PAPER") {
+            result = ("You win!");
         };
     };
-    
-    console.log(`You picked ${playerMove}. The computer picked ${compChoice}. ${result}`);
+
+    if (result === "You win!") {
+        score.wins ++;
+    } else if (result === "You lose!") {
+        score.losses ++;
+    } else if (result === "It's a tie!") {
+        score.ties ++;
+    };
+
+    console.log(`You picked ${playerMove}. The computer picked ${compChoice}. ${result}\nWins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
 };
 
 pickRock = () => {
-    playGame("Rock");
+    playGame("ROCK");
 };
 
 pickPaper = () => {
-    playGame("Paper");
+    playGame("PAPER");
 };
 
 pickScissors = () => {
-    playGame("Scissors");
+    playGame("SCISSORS");
+};
+
+resetScore = () => {
+    score.wins = 0;
+    score.losses = 0;
+    score.ties = 0;
 };
