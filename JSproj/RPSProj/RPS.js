@@ -1,4 +1,4 @@
-const score = {
+let score = JSON.parse(localStorage.getItem('score')) || {
     wins: 0,
     losses: 0,
     ties: 0
@@ -59,6 +59,8 @@ playGame = (playerMove) => {
         score.ties ++;
     };
 
+    localStorage.setItem("score", JSON.stringify(score));
+
     console.log(`You picked ${playerMove}. The computer picked ${compChoice}. ${result}\nWins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
 };
 
@@ -78,4 +80,5 @@ resetScore = () => {
     score.wins = 0;
     score.losses = 0;
     score.ties = 0;
+    localStorage.removeItem('score');
 };
