@@ -66,18 +66,30 @@
 //     calculation = "";
 // };
 
-let calculation = "";
+let calculation = localStorage.getItem("calculation") || "";
+console.log(calculation);
 
 putNumber = (number) => {
     console.log(`${calculation += number}`);
+    localStorage.setItem("calculation", calculation);
 };
 
 putSymbol = (symbol) => {
+    if (!calculation) {
+        calculation = 0
+    }
     console.log(`${calculation += symbol}`);
+    localStorage.setItem("calculation", calculation);
 };
 
 calculate = () => {
     calculation = eval(calculation);
     console.log(calculation);
+    localStorage.setItem("calculation", calculation);
+};
+
+reset = () => {
     calculation = "";
+    console.log(calculation);
+    localStorage.setItem("calculation", calculation);
 };
