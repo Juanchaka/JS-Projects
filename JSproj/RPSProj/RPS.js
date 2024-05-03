@@ -4,6 +4,12 @@ let score = JSON.parse(localStorage.getItem('score')) || {
     ties: 0
 };
 
+showScore = () => {
+    return document.querySelector(".score").innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
+};
+
+document.querySelector(".score").innerHTML = showScore();
+
 computerMove = () => {
     const randomizer = Math.random();
     let compChoice = "";
@@ -61,7 +67,15 @@ playGame = (playerMove) => {
 
     localStorage.setItem("score", JSON.stringify(score));
 
-    console.log(`You picked ${playerMove}. The computer picked ${compChoice}. ${result}\nWins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
+    document.querySelector(".results").innerHTML = result;
+
+    document.querySelector(".move").innerHTML = `You picked <img src="RPSImages/${playerMove}-emoji.png" class ="icons"></button> The computer picked <img src="RPSImages/${compChoice}-emoji.png" class ="icons"></button>`;
+    
+    // ${playerMove}. The computer picked ${compChoice}.
+
+    showScore();
+
+    // console.log(`You picked <img src="RPSImages/${playerMove}-emoji.png" class ="icons"></button>. The computer picked <img src="RPSImages/${compChoice}-emoji.png" class ="icons"></button>. ${result}\nWins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
 };
 
 pickRock = () => {
@@ -81,4 +95,5 @@ resetScore = () => {
     score.losses = 0;
     score.ties = 0;
     localStorage.removeItem('score');
+    showScore();
 };
