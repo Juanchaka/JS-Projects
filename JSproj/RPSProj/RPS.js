@@ -65,17 +65,13 @@ playGame = (playerMove) => {
         score.ties ++;
     };
 
-    localStorage.setItem("score", JSON.stringify(score));
-
     document.querySelector(".results").innerHTML = result;
 
-    document.querySelector(".move").innerHTML = `You picked <img src="RPSImages/${playerMove}-emoji.png" class ="icons"></button> The computer picked <img src="RPSImages/${compChoice}-emoji.png" class ="icons"></button>`;
-    
-    // ${playerMove}. The computer picked ${compChoice}.
+    document.querySelector(".move").innerHTML = `You picked <img src="RPSImages/${playerMove}-emoji.png" class ="icons"></button> The computer picked <img src="RPSImages/${compChoice}-emoji.png" class ="icons"></button>`;  
+
+    localStorage.setItem("score", JSON.stringify(score));
 
     showScore();
-
-    // console.log(`You picked <img src="RPSImages/${playerMove}-emoji.png" class ="icons"></button>. The computer picked <img src="RPSImages/${compChoice}-emoji.png" class ="icons"></button>. ${result}\nWins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
 };
 
 pickRock = () => {
