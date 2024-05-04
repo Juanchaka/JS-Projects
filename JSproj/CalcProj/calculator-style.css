@@ -1,0 +1,25 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+button {
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    color: white;
+}
+
+.number-btn {
+    background-color: rgba(103, 99, 99, 0.897);
+}
+
+.sym-btn {
+    background-color: orange;
+}
+
+.clr-btn {
+    background-color: rgba(242, 88, 32, 0.837);
+    padding: 4px;
+}
