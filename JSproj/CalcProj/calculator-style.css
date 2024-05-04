@@ -3,6 +3,11 @@ body {
     color: white;
 }
 
+.showResults {
+    margin: auto;
+    font-size: 45px;
+}
+
 button {
     border: none;
     width: 40px;

@@ -21,7 +21,7 @@ calculate = () => {
 };
 
 reset = () => {
-    calculation = 0;
+    calculation = "";
     printResults();
     localStorage.setItem("calculation", calculation);
 };
