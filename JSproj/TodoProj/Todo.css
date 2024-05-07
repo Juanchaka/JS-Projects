@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.divGrid, .inputGrid {
+    display: grid;
+    grid-template-columns: 200px 150px 100px;
+    column-gap: 8px;
+    row-gap: 8px;
+    align-items: center;
+}
+
+.inputGrid {
+    margin-bottom: 8px;
+    align-items: stretch;
+}
+
+.inputText, .inputDate{
+    font-size: 15px;
+    padding: 6px;
+}
+
+.add-btn {
+    background-color: green;
+    color: white;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.delete-btn {
+    background-color: darkred;
+    font-size: 15px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding-top: 8px;
+    padding-bottom: 10px;
+}

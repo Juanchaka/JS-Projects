@@ -5,12 +5,8 @@ displayOnPage = () => {
 
     for(i=0;i<todoList.length; i++) {
         const todoItem = todoList[i];
-        const { name, dueDate } = todoItem;
-        const html = `
-        <p>
-        ${name} ${dueDate}
-        <button onclick="removeFromList();">Delete</button>
-        </p>`;
+        const {name, dueDate} = todoItem;
+        const html = `<div>${name}</div> <div>${dueDate}</div> <button class="delete-btn" onclick="removeFromList(${i});">Delete</button></div>`;
         todoListHTML += html;
         document.querySelector(".addToDiv").innerHTML = todoListHTML;
     };
